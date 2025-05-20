@@ -70,12 +70,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'djangoWebsocket.wsgi.application'
+ASGI_APPLICATION = 'djangoWebsocket.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
     },
 }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
